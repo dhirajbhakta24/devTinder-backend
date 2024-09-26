@@ -1,0 +1,23 @@
+{
+  "name": "devtinder-backend",
+  "version": "1.0.0",
+  "description": "\"# devTinder-backend\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhirajbhakta24/devTinder-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhirajbhakta24/devTinder-backend/issues"
+  },
+  "homepage": "https://github.com/dhirajbhakta24/devTinder-backend#readme",
+  "dependencies": {
+    "express": "^4.21.0",
+    "nodemon": "^3.1.7"
+  }
+}
