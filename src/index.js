@@ -1,16 +1,38 @@
 const express = require('express');
+const connectDB = require('./config/database.config');
+const User = require('./models/user');
 
 const app = express();
 
-app.use('/ping',(req,res) => {
-    res.send("welcome to the server");
+app.post('/signup',async (req,res)=>{
+    // Creating a new instance of the User model
+
+    const user = new User({
+        firstName : 'DhirAJ',
+        lastName : "Bhakta",
+        emailId : "dhirajrocks@gmail.com",
+        password : "dhiraj@rocks",
+    });
+    try {
+        await user.save();
+        res.send("User Added Successfully");
+    } catch(err) {
+        res.status(400).send("error saving the user" + err.message);
+    }
 });
+PORT = 7777;
+
+connectDB()
+    .then(()=>{
+        console.log("Database established successfully");
+
+        app.listen(PORT,()=>{ 
+            console.log(`Server is started at port ${PORT} `);
+    }); 
+    }).catch((err)=>{
+        console.error("Database Connection Failed");
+    });
 
 
-PORT = 3000;
 
-app.listen(PORT,()=>{
-    console.log(`Server is started at port ${PORT} `);
-}
 
-)
